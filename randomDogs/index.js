@@ -12,7 +12,6 @@ function displayPictures(responseJson, newNumber) {
   for (let i = 0; i < newNumber; i++) {
     $('.pictures').append(`<img src="${responseJson.message[i]}" class="picture">`);
   }
-
 }
 
 function watchForm() {
