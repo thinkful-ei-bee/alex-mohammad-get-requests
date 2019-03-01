@@ -3,7 +3,16 @@
 function getDogImage(newNumber) {
   fetch(`https://dog.ceo/api/breeds/image/random/${newNumber}`)
     .then(response => response.json())
-    .then(responseJson => console.log(responseJson));
+    //.then(responseJson => console.log(responseJson));
+    .then(responseJson => displayPictures(responseJson, newNumber));
+}
+
+function displayPictures(responseJson, newNumber) {
+  $('.pictures').html('');
+  for (let i = 0; i < newNumber; i++) {
+    $('.pictures').append(`<img src="${responseJson.message[i]}" class="picture">`);
+  }
+
 }
 
 function watchForm() {
